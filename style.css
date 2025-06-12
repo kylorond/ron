@@ -1,0 +1,151 @@
+body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117; /* GitHub Dark */
+            color: #c9d1d9; /* GitHub Dark Text */
+            cursor: none; /* Sembunyikan kursor asli */
+        }
+        
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            pointer-events: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #0ea5e9; /* Sky-500 */
+        }
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(14, 165, 233, 0.2);
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+        }
+
+        /* Gradient untuk teks */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #38bdf8, #a78bfa); /* Sky-400 to Violet-400 */
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0d1117; }
+        ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .content-above-particles { position: relative; z-index: 1; }
+        
+        .typed-cursor { color: #38bdf8; animation: typed-blink 0.7s infinite; }
+        @keyframes typed-blink { 50% { opacity: 0.0; } }
+        
+        .modal { transition: opacity 0.25s ease; }
+        .modal-content { transition: transform 0.25s ease; }
+
+        #back-to-top { transition: opacity 0.3s, transform 0.3s; }
+        
+        /* Glassmorphism Card Effect */
+        .glass-card {
+            background: rgba(22, 27, 34, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(48, 54, 61, 0.5);
+        }
+        
+        /* Shimmer Effect on Button */
+        .btn-shimmer { position: relative; overflow: hidden; }
+        .btn-shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+        .btn-shimmer:hover::before { left: 100%; }
+
+        /* Performance-friendly scroll animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Menu Styling */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        #mobile-menu .menu-link {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        #mobile-menu.menu-open .menu-link {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Animated Gradient Border for Profile Picture */
+        .profile-image-container {
+            position: relative;
+            padding: 3px; /* Lebar border */
+            border-radius: 1.75rem; /* Sedikit lebih besar dari radius gambar */
+            overflow: hidden;
+            width: fit-content;
+            height: fit-content;
+        }
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 250%; /* Pastikan cukup besar untuk rotasi */
+            aspect-ratio: 1 / 1;
+            background: conic-gradient(
+                from 180deg at 50% 50%,
+                #a78bfa, 
+                #8b5cf6,
+                #38bdf8,
+                #8b5cf6,
+                #a78bfa
+            );
+            animation: rotate-glow 8s linear infinite;
+            z-index: 1;
+        }
+        .profile-image {
+             border-radius: 1.5rem; /* 24px */
+             position: relative;
+             z-index: 2; /* Pastikan gambar di atas pseudo-element */
+        }
+
+        @keyframes rotate-glow {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
