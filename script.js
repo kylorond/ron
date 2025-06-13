@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     title: "Website Terjemahan Bahasa Daerah",
                     imgSrc: "img/proyek1.png",
                     tags: ["JavaScript", "HTML", "CSS"],
-                    description: "Website Pengenalan dan Terjemahan Bahasa Daerah Kalimantan Tengah.",
+                    description: "Website Pengenalan dan Terjemahan Bahasa Daerah Domiman di Kabupaten Barito Selatan, Kalimantan Tengah.",
                     liveLink: "https://kylorond.github.io/mochi-bombshell",
                     repoLink: "https://github.com/kylorond/mochi-bombshell",
                 },
