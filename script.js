@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             particlesJS('particles-js', { "particles": { "number": { "value": 40, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.4, "random": true }, "size": { "value": 2, "random": true }, "line_linked": { "enable": false }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } }, "modes": {}}, "retina_detect": true });
 
             // Typed.js
-            new Typed('#typed-name', { strings: ['Ronaldo Dwi Anaku Aminu', 'Web Developer', 'UI/UX Designer'], typeSpeed: 70, backSpeed: 40, loop: true, backDelay: 2000 });
+            new Typed('#typed-name', { strings: ['Ron', 'Web Developer', 'UI/UX Designer'], typeSpeed: 70, backSpeed: 40, loop: true, backDelay: 2000 });
 
             // Efficient Scroll Animations with IntersectionObserver
             const animatedElements = document.querySelectorAll('.reveal-on-scroll');
