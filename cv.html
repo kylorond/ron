@@ -11,8 +11,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Warna biru gelap (interpretasi dari #30d1117) */
-            color: #c9d1d9; /* Warna teks abu-abu */
+            background-color: #0d1117;
+            color: #c9d1d9;
         }
         .gradient-text {
             background: linear-gradient(to right, #38bdf8, #8b5cf6);
@@ -28,25 +28,47 @@
         .icon-bg {
              background-color: rgba(56, 189, 248, 0.1);
         }
+        
+        /* === KODE PERBAIKAN DIMULAI DI SINI === */
+
+        /* Kelas untuk pembungkus gambar agar memiliki border gradien animasi */
+        .animated-gradient-border {
+            background: linear-gradient(to right, #38bdf8, #8b5cf6, #38bdf8); /* Menambahkan warna awal di akhir untuk loop yang mulus */
+            background-size: 200% auto;
+            animation: gradient-move 4s ease-in-out infinite;
+        }
+
+        /* Keyframes untuk menganimasikan pergerakan background */
+        @keyframes gradient-move {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        /* === KODE PERBAIKAN SELESAI DI SINI === */
     </style>
 </head>
 <body class="antialiased">
     <div class="container mx-auto max-w-4xl p-6 sm:p-8 lg:p-12">
         <div class="bg-[#161b22] rounded-2xl shadow-2xl shadow-gray-900/50 overflow-hidden">
             <div class="p-8 sm:p-10 lg:p-12">
-                <!-- Header -->
                 <header class="flex flex-col sm:flex-row items-center sm:justify-between">
                     <div>
                         <h1 class="text-4xl sm:text-5xl font-bold text-white">RON</h1>
                         <h2 class="text-xl sm:text-2xl font-semibold gradient-text mt-1">UI/UX Designer & Web Developer</h2>
                     </div>
-                    <div class="mt-6 sm:mt-0 flex space-x-4">
-                        <!-- Ganti dengan foto profil Anda -->
-                        <img src="img/baron.jpg" alt="Foto Profil" class="rounded-full w-24 h-24 sm:w-28 sm:h-28 border-4 border-solid gradient-border">
+                    <div class="mt-6 sm:mt-0">
+                        <div class="rounded-full p-1 animated-gradient-border">
+                             <img src="img/baron.jpg" alt="Foto Profil" class="rounded-full w-24 h-24 sm:w-28 sm:h-28 object-cover">
+                        </div>
                     </div>
                 </header>
 
-                <!-- Kontak & Tautan -->
                 <section class="mt-8 border-t-2 border-b-2 border-solid gradient-border py-4">
                      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center sm:text-left">
                         <a href="mailto:rdwiaa0@gmail.com" class="flex items-center justify-center sm:justify-start space-x-2 hover:opacity-80 transition-opacity">
@@ -69,9 +91,7 @@
                 </section>
                 
                 <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    <!-- Kolom Kiri -->
                     <div class="lg:col-span-1">
-                        <!-- Ringkasan -->
                         <section>
                              <h3 class="text-2xl font-bold text-white mb-4">Ringkasan</h3>
                              <p class="text-base leading-relaxed">
@@ -79,7 +99,6 @@
                              </p>
                         </section>
 
-                        <!-- Keahlian -->
                         <section class="mt-10">
                             <h3 class="text-2xl font-bold text-white mb-4">Keahlian</h3>
                             <div class="space-y-6">
@@ -116,7 +135,6 @@
                             </div>
                         </section>
                         
-                        <!-- Pendidikan -->
                         <section class="mt-10">
                             <h3 class="text-2xl font-bold text-white mb-4">Pendidikan</h3>
                             <div>
@@ -127,12 +145,10 @@
                         </section>
                     </div>
 
-                    <!-- Kolom Kanan -->
                     <div class="lg:col-span-2">
                         <section>
                             <h3 class="text-2xl font-bold text-white mb-6">Pengalaman Kerja</h3>
                             <div class="space-y-8 relative border-l-2 border-solid gradient-border ml-3">
-                                <!-- Pengalaman 1 -->
                                 <div class="pl-8">
                                     <div class="absolute w-6 h-6 bg-[#161b22] rounded-full -left-3 mt-1.5 border-4 border-solid gradient-border"></div>
                                     <p class="text-sm text-gray-400">2021 - Sekarang</p>
@@ -144,7 +160,6 @@
                                         <li>Melakukan wawancara pengguna dan A/B testing untuk memvalidasi hipotesis desain.</li>
                                     </ul>
                                 </div>
-                                <!-- Pengalaman 2 -->
                                 <div class="pl-8">
                                     <div class="absolute w-6 h-6 bg-[#161b22] rounded-full -left-3 mt-1.5 border-4 border-solid gradient-border"></div>
                                     <p class="text-sm text-gray-400">2022 - Sekarang</p>
@@ -156,7 +171,6 @@
                                         <li>Mengoptimalkan kecepatan pemuatan halaman, mengurangi waktu muat rata-rata sebesar 300ms.</li>
                                     </ul>
                                 </div>
-                                <!-- Pengalaman 3 -->
                                 <div class="pl-8">
                                     <div class="absolute w-6 h-6 bg-[#161b22] rounded-full -left-3 mt-1.5 border-4 border-solid gradient-border"></div>
                                     <p class="text-sm text-gray-400">2023 - Sekarang</p>
