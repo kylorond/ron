@@ -7,20 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
         5: { title: "Dashboard Admin", imgSrc: "img/proyek5.png", tags: ["JavaScript", "Alpine.js", "Tailwindcss", "HTML"], description: "Website inspirasi dalam membuat dashboard admin untuk mengelola profil perusahaan", liveLink: "https://kylorond.github.io/deloren", repoLink: "https://github.com/kylorond/deloren" },
         6: { title: "Undian Online", imgSrc: "img/proyek6.png", tags: ["JavaScript", "Tailwindcss", "HTML"], description: "Website undian online untuk membantu mengundi nomor secara acak dengan adil", liveLink: "https://kylorond.github.io/latveria", repoLink: "https://github.com/kylorond/latveria" },
     };
-
     feather.replace();
-
     const canvas = document.getElementById('ambient-canvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
     let circles = [];
-
     window.addEventListener('resize', () => {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
     });
-
     class Circle {
         constructor(x, y, radius, color) {
             this.x = x;
@@ -30,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.dx = (Math.random() - 0.5) * 0.2;
             this.dy = (Math.random() - 0.5) * 0.2;
         }
-
         draw() {
             ctx.beginPath();
             const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
@@ -40,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             ctx.fill();
         }
-
         update() {
             if (this.x + this.radius > width || this.x - this.radius < 0) this.dx = -this.dx;
             if (this.y + this.radius > height || this.y - this.radius < 0) this.dy = -this.dy;
@@ -49,21 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
             this.draw();
         }
     }
-
     function initAmbient() {
         circles.push(new Circle(Math.random() * width, Math.random() * height, Math.random() * 400 + 200, 'rgba(56, 189, 248, 0.5)'));
         circles.push(new Circle(Math.random() * width, Math.random() * height, Math.random() * 400 + 200, 'rgba(139, 92, 246, 0.5)'));
     }
-
     function animateAmbient() {
         requestAnimationFrame(animateAmbient);
         ctx.clearRect(0, 0, width, height);
         circles.forEach(circle => circle.update());
     }
-
     initAmbient();
     animateAmbient();
-
     const cursorDot = document.querySelector(".cursor-dot");
     const cursorOutline = document.querySelector(".cursor-outline");
     window.addEventListener("mousemove", (e) => {
@@ -72,18 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorDot.style.left = `${posX}px`;
         cursorDot.style.top = `${posY}px`;
         cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
-
         if (e.target.closest('a, button, [onclick]')) {
             cursorOutline.classList.add('cursor-interact');
         } else {
             cursorOutline.classList.remove('cursor-interact');
         }
     });
-
     particlesJS('particles-js', { "particles": { "number": { "value": 30, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 2, "random": true }, "line_linked": { "enable": false }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } }, "retina_detect": true });
-
     new Typed('#typed-name', { strings: ['Ron', 'Web Developer', 'UI/UX Designer'], typeSpeed: 70, backSpeed: 40, loop: true, backDelay: 2000 });
-
     const animatedElements = document.querySelectorAll('.reveal-on-scroll');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -94,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
     animatedElements.forEach(el => observer.observe(el));
-
     const modal = document.getElementById('project-modal');
     const modalContent = document.getElementById('modal-content');
     window.openModal = function(projectId) {
@@ -136,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 250);
     }
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
@@ -148,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
     const chatBubble = document.getElementById('chat-bubble');
     const chatWindow = document.getElementById('chat-window');
     const closeChatBtn = document.getElementById('close-chat-btn');
@@ -156,11 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     const chatMessages = document.getElementById('chat-messages');
     const chatTemplates = document.getElementById('chat-templates');
-
     const toggleChat = () => chatWindow.classList.toggle('open');
     chatBubble.addEventListener('click', toggleChat);
     closeChatBtn.addEventListener('click', toggleChat);
-
     const addMessage = (message, sender) => {
         const messageEl = document.createElement('div');
         messageEl.className = `chat-message ${sender}`;
@@ -169,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
         return messageEl;
     }
-
     const showTypingIndicator = () => {
         const typingEl = document.createElement('div');
         typingEl.className = 'chat-message typing';
@@ -178,45 +158,81 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
         return typingEl;
     };
-
     const getBotResponse = (userInput) => {
-        const lowerInput = userInput.toLowerCase();
-        if (lowerInput.includes("halo") || lowerInput.includes("hai")) {
-            return "Halo! Ada yang bisa saya bantu? Silakan pilih salah satu pertanyaan di atas atau ketik pertanyaan Anda sendiri.";
-        } else if (lowerInput.includes("layanan")) {
-            return "Ron menawarkan layanan profesional dalam UI/UX Design, Web Development, dan Desain Aplikasi Mobile. Apakah ada layanan spesifik yang ingin Anda ketahui lebih lanjut?";
-        } else if (lowerInput.includes("harga") || lowerInput.includes("biaya")) {
-            return "Untuk informasi harga, sangat bergantung pada ruang lingkup dan kompleksitas proyek. Cara terbaik adalah dengan menghubungi Ron langsung melalui halaman Kontak untuk mendapatkan penawaran yang akurat.";
-        } else if (lowerInput.includes("proses kerja")) {
-            return "Proses kerja Ron meliputi 4 tahap utama: Penemuan (memahami kebutuhan), Desain (membuat prototipe), Pengembangan (coding), dan Penerapan (peluncuran dan pemeliharaan). Detailnya ada di bagian 'Proses'.";
-        } else if (lowerInput.includes("terima kasih")) {
-            return "Sama-sama! Jika ada hal lain yang ingin ditanyakan, jangan ragu ya.";
-        } else {
-            return "Maaf, saya belum mengerti pertanyaan itu. Mungkin Anda bisa mencoba bertanya tentang 'layanan', 'harga', atau 'proses kerja'.";
+        const normalizedInput = userInput.toLowerCase().trim();
+        const responses = [
+            {
+                patterns: [/halo|hai|hi|selamat (pagi|siang|sore|malam)/i],
+                answer: "Halo! Saya asisten virtual Ron. Ada yang bisa saya bantu seputar layanan, proyek, atau proses kerja Ron?"
+            },
+            {
+                patterns: [/layanan|jasa|bisa buat apa/i],
+                answer: "Ron menyediakan layanan profesional dalam <strong>UI/UX Design</strong>, <strong>Web Development</strong>, dan <strong>Desain Aplikasi Mobile</strong>. Apakah ada layanan spesifik yang ingin Anda ketahui lebih dalam?"
+            },
+            {
+                patterns: [/harga|biaya|tarif/i],
+                answer: "Untuk informasi biaya, semuanya disesuaikan dengan kompleksitas dan ruang lingkup proyek. Cara terbaik adalah dengan <a href='#contact' class='text-sky-400 underline'>menghubungi Ron</a> langsung untuk diskusi dan mendapatkan penawaran yang sesuai dengan kebutuhan Anda."
+            },
+            {
+                patterns: [/proses|tahapan|alur kerja/i],
+                answer: "Tentu! Proses kerja Ron sangat terstruktur, dimulai dari tahap <strong>Penemuan</strong> untuk memahami tujuan, lalu <strong>Desain</strong> (wireframe & prototipe), dilanjutkan dengan <strong>Pengembangan</strong> (coding), dan diakhiri dengan <strong>Penerapan</strong> (pengujian & peluncuran). Selengkapnya bisa Anda lihat di bagian 'Proses Kerja'."
+            },
+            {
+                patterns: [/berapa lama|waktu pengerjaan/i],
+                answer: "Durasi proyek sangat bervariasi. Sebagai gambaran, website profil sederhana biasanya memakan waktu 2-4 minggu. Namun, untuk proyek yang lebih kompleks, waktunya akan disesuaikan. Sebaiknya diskusikan langsung dengan Ron untuk estimasi yang lebih akurat."
+            },
+            {
+                patterns: [/teknologi|tools/i],
+                answer: "Ron menggunakan berbagai teknologi modern. Untuk desain, andalannya adalah <strong>Figma</strong>. Untuk pengembangan web, ia mahir menggunakan <strong>HTML, CSS, JavaScript,</strong> dan framework seperti <strong>Tailwind CSS</strong> untuk hasil yang cepat dan responsif."
+            },
+            {
+                patterns: [/proyek|portofolio|karya/i],
+                answer: "Anda bisa melihat beberapa proyek unggulan Ron di bagian 'Proyek'. Dari sistem pendukung keputusan hingga profil perusahaan, semuanya dibuat dengan teliti. Apakah ada proyek spesifik yang menarik perhatian Anda?"
+            },
+            {
+                patterns: [/kontak|hubungi|nomor|email/i],
+                answer: "Anda bisa menghubungi Ron melalui email di <a href='mailto:rdwiaa0@gmail.com' class='text-sky-400 underline'>rdwiaa0@gmail.com</a> atau langsung mengisi formulir di bagian 'Hubungi Saya'. Ron akan segera merespons pesan Anda."
+            },
+            {
+                patterns: [/siapa ron|tentang (anda|kamu|ron)/i],
+                answer: "Ron adalah seorang UI/UX Designer dan Web Developer yang bersemangat dalam menciptakan pengalaman digital yang intuitif dan modern. Ia menggabungkan keahlian desain dan teknis untuk menghasilkan produk digital yang berkualitas."
+            },
+            {
+                patterns: [/terima kasih|makasih|oke|baik|siap/i],
+                answer: "Sama-sama! Senang bisa membantu. Jika ada pertanyaan lain, jangan ragu untuk bertanya lagi ya."
+            },
+            {
+                patterns: [/cv|riwayat hidup/i],
+                answer: "Tentu, Anda bisa melihat CV lengkap Ron dengan mengklik tombol 'Lihat CV Saya' di bagian 'Tentang Saya' atau melalui <a href='cv.html' class='text-sky-400 underline'>tautan ini</a>."
+            }
+        ];
+        for (const r of responses) {
+            for (const pattern of r.patterns) {
+                if (pattern.test(normalizedInput)) {
+                    return r.answer;
+                }
+            }
         }
+        return "Maaf, saya belum mengerti pertanyaan itu. Mungkin Anda bisa mencoba bertanya tentang 'layanan apa saja yang tersedia', 'bagaimana proses kerjanya', atau 'teknologi apa yang digunakan?'.";
     };
-
     const handleUserInput = (input) => {
         if (!input) return;
         addMessage(input, 'user');
         chatInput.value = '';
         chatTemplates.style.display = 'none';
-        
         const typingIndicator = showTypingIndicator();
-
         setTimeout(() => {
             chatMessages.removeChild(typingIndicator);
             const botResponse = getBotResponse(input);
             addMessage(botResponse, 'bot');
         }, 1500);
     };
-
     chatForm.addEventListener('submit', (e) => {
         e.preventDefault();
         handleUserInput(chatInput.value.trim());
     });
-    
-    const templates = ["Apa saja layanannya?", "Bagaimana proses kerjanya?", "Info harga proyek"];
+    const templates = ["Apa saja layanannya?", "Bagaimana proses kerjanya?", "Info harga proyek", "Lihat portofolio"];
+    chatTemplates.innerHTML = '';
     templates.forEach(text => {
         const btn = document.createElement('button');
         btn.className = 'template-btn';
@@ -224,9 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.onclick = () => handleUserInput(text);
         chatTemplates.appendChild(btn);
     });
-    
     addMessage("Halo! Saya asisten virtual Ron. Ada yang bisa saya bantu?", 'bot');
-
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const openIcon = document.getElementById('menu-open-icon');
@@ -245,7 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (mobileMenu.classList.contains('menu-open')) toggleMenu();
         });
     });
-    
     const backToTopButton = document.getElementById('back-to-top');
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -253,10 +266,13 @@ document.addEventListener('DOMContentLoaded', () => {
         backToTopButton.classList.toggle('opacity-0', !show);
         backToTopButton.classList.toggle('pointer-events-none', !show);
         backToTopButton.classList.toggle('translate-y-4', !show);
-        header.classList.toggle('shadow-lg', window.scrollY > 50);
-        header.classList.toggle('shadow-sky-500/10', window.scrollY > 50);
+
+        const isScrolled = window.scrollY > 50;
+        header.classList.toggle('bg-black/30', !isScrolled);
+        header.classList.toggle('bg-gray-900/90', isScrolled);
+        header.classList.toggle('shadow-lg', isScrolled);
+        header.classList.toggle('shadow-sky-500/10', isScrolled);
     });
     backToTopButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    
     document.getElementById('current-year').textContent = new Date().getFullYear();
 });
