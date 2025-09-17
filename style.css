@@ -210,6 +210,7 @@ body {
     max-width: 80%;
     margin-bottom: 0.5rem;
     line-height: 1.4;
+    word-wrap: break-word;
 }
 .chat-message a {
     color: var(--sky-blue);
@@ -281,5 +282,5 @@ body {
     #process .relative::after { display: none; }
     #chat-bubble { right: 1rem; bottom: 1rem; }
     #back-to-top { display: none; }
-    #chat-window { right: 1rem; bottom: 6rem; }
+    #chat-window { right: 1rem; bottom: 6rem; width: auto; left: 1rem; }
 }
