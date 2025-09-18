@@ -10,11 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="antialiased">
     <canvas id="ambient-canvas"></canvas>
     <div class="cursor-outline"></div>
     <div class="cursor-dot"></div>
+
     <header class="bg-black/30 backdrop-blur-lg fixed top-0 left-0 right-0 z-40 transition-[background-color,box-shadow] duration-300" id="header">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -83,7 +85,7 @@
                         <p class="text-gray-400 leading-relaxed mb-6">
                             Sebagai talenta baru yang bersemangat, Saya siap berkontribusi dan bertumbuh secara profesional untuk menciptakan produk digital yang solutif dan berpusat pada pengguna.
                         </p>
-                        <a href="#" class="bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 px-6 rounded-lg transition-transform duration-300 transform hover:scale-105 inline-flex items-center gap-2 btn-shimmer">
+                        <a href="cv.html" target="_blank" rel="noopener noreferrer" class="bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 px-6 rounded-lg transition-transform duration-300 transform hover:scale-105 inline-flex items-center gap-2 btn-shimmer">
                             Lihat CV Saya
                         </a>
                     </div>
@@ -179,7 +181,7 @@
                             </div>
                         </div>
                     </div>
-                     <div class="reveal-on-scroll group relative overflow-hidden rounded-lg shadow-xl cursor-pointer" onclick="openModal(2)" style="transition-delay: 150ms;">
+                    <div class="reveal-on-scroll group relative overflow-hidden rounded-lg shadow-xl cursor-pointer" onclick="openModal(2)" style="transition-delay: 150ms;">
                         <img src="img/proyek2.png" alt="Gambar Proyek" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                         <div class="absolute inset-0 p-6 flex flex-col justify-end">
@@ -192,7 +194,7 @@
                             </div>
                         </div>
                     </div>
-                     <div class="reveal-on-scroll group relative overflow-hidden rounded-lg shadow-xl cursor-pointer" onclick="openModal(3)" style="transition-delay: 300ms;">
+                    <div class="reveal-on-scroll group relative overflow-hidden rounded-lg shadow-xl cursor-pointer" onclick="openModal(3)" style="transition-delay: 300ms;">
                         <img src="img/proyek3.png" alt="Gambar Proyek" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                         <div class="absolute inset-0 p-6 flex flex-col justify-end">
@@ -218,7 +220,7 @@
                             </div>
                         </div>
                     </div>
-                     <div class="reveal-on-scroll group relative overflow-hidden rounded-lg shadow-xl cursor-pointer" onclick="openModal(5)" style="transition-delay: 150ms;">
+                    <div class="reveal-on-scroll group relative overflow-hidden rounded-lg shadow-xl cursor-pointer" onclick="openModal(5)" style="transition-delay: 150ms;">
                         <img src="img/proyek5.png" alt="Gambar Proyek" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                         <div class="absolute inset-0 p-6 flex flex-col justify-end">
@@ -231,7 +233,7 @@
                             </div>
                         </div>
                     </div>
-                     <div class="reveal-on-scroll group relative overflow-hidden rounded-lg shadow-xl cursor-pointer" onclick="openModal(6)" style="transition-delay: 300ms;">
+                    <div class="reveal-on-scroll group relative overflow-hidden rounded-lg shadow-xl cursor-pointer" onclick="openModal(6)" style="transition-delay: 300ms;">
                         <img src="img/proyek6.png" alt="Gambar Proyek" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                         <div class="absolute inset-0 p-6 flex flex-col justify-end">
@@ -368,9 +370,9 @@
     <footer class="bg-black/30 py-8">
         <div class="container mx-auto px-6 text-center text-gray-500">
             <div class="flex justify-center space-x-6 mb-4">
-               <a href="https://github.com/kylorond" target="_blank" class="hover:text-sky-400 transition-colors"><i data-feather="github"></i></a>
-               <a href="https://www.linkedin.com/in/ronaldo-dwi-anaku-aminu-119a79226/" target="_blank" class="hover:text-sky-400 transition-colors"><i data-feather="linkedin"></i></a>
-               <a href="https://instagram.com/baronnnd_" target="_blank" class="hover:text-sky-400 transition-colors"><i data-feather="instagram"></i></a>
+               <a href="https://github.com/kylorond" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors"><i data-feather="github"></i></a>
+               <a href="https://www.linkedin.com/in/ronaldo-dwi-anaku-aminu-119a79226/" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors"><i data-feather="linkedin"></i></a>
+               <a href="https://instagram.com/baronnnd_" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors"><i data-feather="instagram"></i></a>
             </div>
             <p>© <span id="current-year"></span> <a href="https://www.instagram.com/baronnnd_">Baron</a>. Semua Hak Dilindungi.</p>
         </div>
@@ -408,7 +410,6 @@
     </div>
 
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="script.js"></script>
