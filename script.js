@@ -127,9 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalContent.classList.add('scale-95');
         setTimeout(() => {
             modal.classList.add('pointer-events-none');
-            if (!document.getElementById('chat-window').classList.contains('open')) {
-                 document.body.style.overflow = 'auto';
-            }
+            document.body.style.overflow = 'auto';
         }, 250);
     }
 
@@ -157,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const toggleChat = () => {
         const isOpen = chatWindow.classList.toggle('open');
-        document.body.style.overflow = isOpen ? 'hidden' : 'auto';
         if (isOpen) {
             chatInput.focus();
         }
@@ -190,54 +187,57 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 patterns: [/halo|hai|hi|selamat (pagi|siang|sore|malam)/i],
                 answers: [
-                    "Halo! Saya asisten virtual Ron. Ada yang bisa saya bantu?",
-                    "Hai! Selamat datang. Saya asisten virtual di sini, siap membantu Anda menavigasi portofolio Ron.",
-                    "Halo! Ada yang bisa saya bantu terkait layanan, proyek, atau proses kerja Ron?"
+                    "Halo! Saya asisten virtual Ron. Ada yang bisa saya bantu terkait portofolio ini?",
+                    "Hai! Selamat datang. Saya bisa bantu jawab pertanyaan seputar layanan, proyek, atau keahlian Ron."
                 ]
             },
             {
-                patterns: [/layanan|jasa|bisa buat apa/i],
-                answers: ["Ron menyediakan layanan profesional dalam <strong>UI/UX Design</strong>, <strong>Web Development</strong>, dan <strong>Desain Aplikasi Mobile</strong>. Apakah ada layanan spesifik yang ingin Anda ketahui lebih dalam?"]
+                patterns: [/layanan|jasa|bisa buat apa|menawarkan apa/i],
+                answers: ["Ron menawarkan tiga layanan utama: <strong>UI/UX Design</strong> untuk membuat desain yang menarik, <strong>Web Development</strong> untuk membangun website, dan <strong>Desain Aplikasi Mobile</strong>. Mana yang paling menarik bagi Anda?"]
             },
             {
                 patterns: [/harga|biaya|tarif/i],
-                answers: ["Untuk informasi biaya, semuanya disesuaikan dengan kompleksitas proyek. Cara terbaik adalah dengan <a href='#contact' class='text-sky-400 underline'>menghubungi Ron</a> langsung untuk diskusi dan mendapatkan penawaran yang sesuai."]
+                answers: ["Setiap proyek itu unik, jadi biayanya juga bervariasi. Untuk mendapatkan penawaran harga yang akurat, cara terbaik adalah dengan <a href='#contact' class='text-sky-400 underline'>menghubungi Ron</a> langsung dan mendiskusikan detail proyek Anda."]
             },
             {
                 patterns: [/proses|tahapan|alur kerja/i],
-                answers: ["Tentu! Proses kerja Ron sangat terstruktur, dimulai dari tahap <strong>Penemuan</strong>, lalu <strong>Desain</strong>, dilanjutkan dengan <strong>Pengembangan</strong>, dan diakhiri dengan <strong>Penerapan</strong>. Selengkapnya ada di bagian 'Proses Kerja'."]
+                answers: ["Tentu! Proses kerja Ron sangat terstruktur: dimulai dari <strong>1. Penemuan</strong> (memahami kebutuhan), <strong>2. Desain</strong> (membuat mockup), <strong>3. Pengembangan</strong> (coding), dan terakhir <strong>4. Penerapan</strong> (peluncuran). Proses ini memastikan hasil yang berkualitas."]
             },
             {
                 patterns: [/berapa lama|waktu pengerjaan/i],
-                answers: ["Durasi proyek sangat bervariasi. Website profil sederhana biasanya memakan waktu 2-4 minggu. Namun, untuk proyek yang lebih kompleks, waktunya akan disesuaikan. Sebaiknya diskusikan langsung dengan Ron."]
+                answers: ["Durasi proyek tergantung kompleksitasnya. Website sederhana seperti profil perusahaan biasanya sekitar 2-4 minggu. Untuk proyek yang lebih rumit, tentu akan memakan waktu lebih lama. Diskusi lebih lanjut akan memberikan estimasi yang lebih akurat."]
             },
             {
-                patterns: [/teknologi|tools/i],
-                answers: ["Ron menggunakan berbagai teknologi modern. Untuk desain, andalannya adalah <strong>Figma</strong>. Untuk pengembangan web, ia mahir menggunakan <strong>HTML, CSS, JavaScript,</strong> dan <strong>Tailwind CSS</strong>."]
+                patterns: [/teknologi|tools|keahlian|skill/i],
+                answers: ["Ron sangat terampil menggunakan berbagai teknologi modern. Untuk desain, ia menggunakan <strong>Figma</strong>. Untuk pengembangan, ia ahli dalam <strong>HTML, CSS, JavaScript,</strong> dan <strong>Tailwind CSS</strong>. Anda bisa lihat ikon keahliannya di bagian 'Tentang Saya'."]
             },
             {
                 patterns: [/proyek|portofolio|karya/i],
-                answers: ["Anda bisa melihat beberapa proyek unggulan Ron di bagian 'Proyek'. Apakah ada proyek spesifik yang menarik perhatian Anda?"]
+                answers: ["Anda bisa melihat beberapa proyek terbaik Ron di bagian 'Proyek Unggulan'. Cukup klik pada gambar untuk melihat detailnya. Apakah ada jenis proyek tertentu yang ingin Anda lihat?"]
             },
             {
-                patterns: [/kontak|hubungi|nomor|email/i],
-                answers: ["Anda bisa menghubungi Ron melalui email di <a href='mailto:rdwiaa0@gmail.com' class='text-sky-400 underline'>rdwiaa0@gmail.com</a> atau langsung ke bagian 'Hubungi Saya'."]
+                patterns: [/kontak|hubungi|nomor|email|sosial media|sosmed/i],
+                answers: ["Tentu! Anda bisa menghubungi Ron melalui email di <a href='mailto:rdwiaa0@gmail.com' class='text-sky-400 underline'>rdwiaa0@gmail.com</a> atau telepon. Semua informasi kontaknya ada di bagian paling bawah halaman ini."]
             },
             {
-                patterns: [/siapa ron|tentang (anda|kamu|ron)/i],
-                answers: ["Ron adalah seorang UI/UX Designer dan Web Developer yang bersemangat dalam menciptakan pengalaman digital yang intuitif dan modern."]
+                patterns: [/siapa ron|tentang (anda|kamu|ron)|profil/i],
+                answers: ["Ron adalah seorang UI/UX Designer dan Web Developer yang bersemangat dalam menciptakan pengalaman digital yang intuitif dan modern. Ia menggabungkan keahlian desain dan teknis untuk menghasilkan produk digital berkualitas."]
+            },
+             {
+                patterns: [/kabar|apa kabar/i],
+                answers: ["Kabar baik, terima kasih sudah bertanya! Saya siap membantu Anda menemukan informasi yang Anda butuhkan di portofolio ini. Ada yang bisa saya bantu?"]
             },
             {
                 patterns: [/terima kasih|makasih|oke|baik|siap/i],
                 answers: [
                     "Sama-sama! Senang bisa membantu.",
-                    "Dengan senang hati! Ada lagi yang ingin ditanyakan?",
-                    "Baik, jika butuh bantuan lagi, saya ada di sini."
+                    "Dengan senang hati! Jika ada pertanyaan lain, jangan ragu untuk bertanya lagi.",
+                    "Baik, jika butuh bantuan lagi, saya selalu ada di sini."
                 ]
             },
             {
                 patterns: [/cv|riwayat hidup/i],
-                answers: ["Tentu, Anda bisa melihat CV lengkap Ron dengan mengklik tombol 'Lihat CV Saya' di bagian 'Tentang Saya'."]
+                answers: ["Tentu, Anda bisa mengunduh atau melihat CV lengkap Ron dengan mengklik tombol 'Lihat CV Saya' di bagian 'Tentang Saya'. Tombol tersebut akan membuka CV di tab baru."]
             }
         ];
 
@@ -252,9 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const fallbackResponses = [
             "Maaf, saya belum mengerti pertanyaan itu. Mungkin Anda bisa mencoba bertanya tentang 'layanan', 'proyek', atau 'teknologi'?",
             "Hmm, itu di luar jangkauan saya. Saya bisa bantu jelaskan tentang portofolio Ron. Ada yang spesifik ingin Anda tahu?",
-            "Saya masih dalam tahap belajar. Untuk saat ini, saya hanya bisa menjawab pertanyaan seputar portofolio ini.",
-            "Pertanyaan menarik! Namun, saya tidak diprogram untuk itu. Bagaimana kalau saya jelaskan 'proses kerja' Ron?",
-            "Saya tidak menemukan jawaban untuk itu. Coba tanyakan sesuatu yang lebih spesifik terkait UI/UX atau Web Development."
+            "Saya masih dalam tahap belajar. Untuk saat ini, saya hanya bisa menjawab pertanyaan seputar portofolio ini. Coba tanyakan tentang 'proses kerja', misalnya.",
+            "Saya tidak menemukan jawaban untuk itu. Coba tanyakan sesuatu yang lebih spesifik terkait UI/UX atau Web Development yang ditawarkan Ron."
         ];
 
         return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
