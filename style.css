@@ -281,6 +281,11 @@ body {
     #process .grid { grid-template-columns: 1fr; gap: 2rem; }
     #process .relative::after { display: none; }
     #chat-bubble { right: 1rem; bottom: 1rem; }
-    #back-to-top { display: none; }
+    #back-to-top { right: 1rem; bottom: 1rem; display: none; } /* Hide on mobile to avoid overlap */
     #chat-window { right: 1rem; bottom: 6rem; width: auto; left: 1rem; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    #about .flex-col { flex-direction: column; }
+    #about .lg\:w-1\/2 { width: 100%; text-align: center; }
+    .profile-image-container { margin-bottom: 2rem; }
 }
