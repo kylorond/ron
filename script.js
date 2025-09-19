@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
             faq1Question: "How long does it take to complete a website project?",
             faq1Answer: "The project timeline varies greatly depending on its complexity. A simple company profile website usually takes 2-4 weeks. More complex projects like e-commerce stores or custom web applications can take longer.",
             faq2Question: "What technologies do you use?",
-            faq2Answer: "I primarily use Figma for UI/UX Design. for development, I am proficient in HTML, CSS, JavaScript, and modern frameworks like Tailwind CSS. I am always learning and adapting to the latest technologies to deliver the best results.",
+            faq2Answer: "I primarily use Figma for UI/UX Design. for development, I am proficient in HTML, CSS, JavaScript and modern frameworks like Tailwind CSS. I am always learning and adapting to the latest technologies to deliver the best results.",
             faq3Question: "Do you provide website maintenance services?",
-            faq3Answer: "Yes, I offer website maintenance packages after the project is completed. This includes security updates, regular backups, and minor content updates to ensure your website remains optimal and secure.",
+            faq3Answer: "Yes, I offer website maintenance packages after the project is completed. This includes security updates, regular backups and minor content updates to ensure your website remains optimal and secure.",
             contactTitle: "Contact Me",
             contactSubtitle: "Feel free to reach out to me.",
             phoneTitle: "Phone",
@@ -137,9 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
             faq1Question: "Berapa lama waktu pengerjaan sebuah proyek website?",
             faq1Answer: "Waktu pengerjaan sangat bervariasi tergantung pada kompleksitas proyek. Untuk website profil perusahaan sederhana, biasanya memakan waktu 2-4 minggu. Proyek yang lebih kompleks seperti toko online atau aplikasi web kustom bisa memakan waktu lebih lama.",
             faq2Question: "Teknologi apa saja yang Anda gunakan?",
-            faq2Answer: "Saya utamanya menggunakan Figma untuk UI/UX Design. Untuk pengembangan, saya ahli dalam HTML, CSS, JavaScript, dan framework modern seperti Tailwind CSS. Saya selalu belajar dan beradaptasi dengan teknologi terbaru untuk memberikan hasil terbaik.",
+            faq2Answer: "Saya utamanya menggunakan Figma untuk UI/UX Design. Untuk pengembangan, saya ahli dalam HTML, CSS, JavaScript dan framework modern seperti Tailwind CSS. Saya selalu belajar dan beradaptasi dengan teknologi terbaru untuk memberikan hasil terbaik.",
             faq3Question: "Apakah Anda menyediakan layanan pemeliharaan website?",
-            faq3Answer: "Ya, saya menawarkan paket pemeliharaan website setelah proyek selesai. Ini termasuk pembaruan keamanan, backup rutin, dan pembaruan konten minor untuk memastikan website Anda tetap berjalan optimal dan aman.",
+            faq3Answer: "Ya, saya menawarkan paket pemeliharaan website setelah proyek selesai. Ini termasuk pembaruan keamanan, backup rutin dan pembaruan konten minor untuk memastikan website Anda tetap berjalan optimal dan aman.",
             contactTitle: "Hubungi Saya",
             contactSubtitle: "Jangan ragu untuk menjangkau saya.",
             phoneTitle: "Telepon",
@@ -182,6 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
         6: { imgSrc: "img/proyek6.png", tags: ["JavaScript", "Tailwindcss", "HTML"], liveLink: "https://kylorond.github.io/latveria", repoLink: "https://github.com/kylorond/latveria" },
     };
 
+    const particlesConfig = { "particles": { "number": { "value": 30, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 2, "random": true }, "line_linked": { "enable": false }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } }, "retina_detect": true };
+
     feather.replace();
 
     const themeToggle = document.getElementById('theme-toggle');
@@ -194,10 +196,15 @@ document.addEventListener('DOMContentLoaded', () => {
             body.classList.add('light-mode');
             sunIcon.classList.add('hidden');
             moonIcon.classList.remove('hidden');
+            particlesConfig.particles.color.value = '#475569';
         } else {
             body.classList.remove('light-mode');
             sunIcon.classList.remove('hidden');
             moonIcon.classList.add('hidden');
+            particlesConfig.particles.color.value = '#ffffff';
+        }
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', particlesConfig);
         }
     };
 
@@ -300,8 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cursorOutline.classList.remove('cursor-interact');
         }
     });
-
-    particlesJS('particles-js', { "particles": { "number": { "value": 30, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3, "random": true }, "size": { "value": 2, "random": true }, "line_linked": { "enable": false }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false } } }, "retina_detect": true });
     
     const animatedElements = document.querySelectorAll('.reveal-on-scroll');
     const observer = new IntersectionObserver((entries) => {
@@ -335,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="p-6 md:p-8">
                     <h3 class="text-3xl font-bold mb-4 text-white">${title}</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        ${data.tags.map(tag => `<span class="bg-gray-700 text-gray-300 text-sm font-semibold px-3 py-1 rounded-full">${tag}</span>`).join('')}
+                        ${data.tags.map(tag => `<span class="modal-tag text-sm font-semibold px-3 py-1 rounded-full">${tag}</span>`).join('')}
                     </div>
                     <p class="text-gray-400 leading-relaxed mb-6">${description}</p>
                     <div class="flex flex-wrap gap-4">
