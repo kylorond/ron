@@ -14,13 +14,13 @@
 }
 
 body.light-mode {
-    --dark-bg: #f1f5f9;
+    --dark-bg: #f8fafc;
     --mid-bg: #ffffff;
-    --light-text: #0f172a;
+    --light-text: #1e293b;
     --medium-text: #475569;
     --border-color: rgba(203, 213, 225, 0.7);
     --header-bg: rgba(255, 255, 255, 0.3);
-    --header-scroll-bg: rgba(241, 245, 249, 0.9);
+    --header-scroll-bg: rgba(248, 250, 252, 0.9);
     --form-bg: #f1f5f9;
     --input-bg: #e2e8f0;
     --map-filter: grayscale(0%) invert(0%) contrast(100%);
@@ -320,7 +320,6 @@ body.light-mode .chat-message.bot { background-color: #e2e8f0; }
 body.light-mode .template-btn { background-color: #e2e8f0; }
 body.light-mode .template-btn:hover { background-color: var(--sky-blue); color: white; }
 
-/* Custom class selectors */
 .bg-mid-bg-custom { background-color: var(--mid-bg); }
 .footer-custom { background-color: var(--header-bg); }
 .form-custom { border-color: var(--border-color); background-color: var(--form-bg); }
@@ -328,6 +327,12 @@ body.light-mode .template-btn:hover { background-color: var(--sky-blue); color: 
 .line-process { background-color: var(--medium-text); opacity: 0.5; }
 .step-circle { background-color: var(--dark-bg); }
 .map-frame { filter: var(--map-filter); transition: filter 0.3s; }
+
+.modal-tag {
+     background-color: #374151;
+     color: #d1d5db;
+}
+
 .opacity-light-mode-0 { transition: opacity 0.3s; }
 body.light-mode .opacity-light-mode-0 { opacity: 0; }
 body.light-mode .text-gray-300 { color: #334155; }
@@ -335,7 +340,10 @@ body.light-mode .text-gray-400 { color: var(--medium-text); }
 body.light-mode .text-gray-500 { color: #64748b; }
 body.light-mode #header { background-color: var(--header-bg); }
 body.light-mode #header.scrolled { background-color: var(--header-scroll-bg); }
-
+body.light-mode .line-process { background-color: #e2e8f0; }
+body.light-mode .step-circle { background-color: var(--mid-bg); }
+body.light-mode .modal-tag { background-color: #e2e8f0; color: #334155; }
+body.light-mode .input-custom::placeholder { color: #64748b; }
 
 @media (max-width: 767px) {
     body { cursor: auto; }
